@@ -1,0 +1,9 @@
+.selectors {
+    background: transparent;
+    color: $primary_text_color;
+    padding: 20px;
+    width: 100%;
+    @media screen and (min-width: $break_medium) {
+        width: 50%;
+    }
+}

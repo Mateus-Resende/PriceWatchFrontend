@@ -1,0 +1,66 @@
+@import 'palette';
+@import 'mixins';
+@import 'products';
+@import 'selectors';
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	color: $primary_text_color;
+	text-decoration: none;
+	transition: all 0.3s linear;
+}
+
+header, footer {
+	width: 100%;
+	height: 150px;
+	background: #3d3d3d;
+	display: flex;
+    align-items: center;
+}
+
+header {
+	h1 {
+	    font-size: 30pt;
+	    font-family: "Raleway";
+	    color: white;
+	    margin: 0 16px;
+	    letter-spacing: 3px;
+	}
+}
+
+#pw_presentation {
+	background: image-url("pattern.jpg") fixed;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+	h1 {
+	    border-bottom: 4px solid #3d3d3d;
+	    color: #ffffff;
+	    font-size: 22pt;
+	    padding: 0 2px 12px;
+	    margin-bottom: 24px;
+	    font-family: "Raleway", sans-serif;
+	}
+    p {
+    	text-align: center;
+    	color: white;
+	    font-size: 14pt;
+	}
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 36px;
+    background: #eee /*image-url("pattern.jpg") fixed*/;
+}

@@ -1,0 +1,18 @@
+<h1>Fields</h1>
+<%= form_tag("/products", method: "get", name: 'fields', :remote => true) do %>
+    
+    <% @fields.each do |field, values| %>
+        <%= label_tag(field, field) %>
+
+        <% values.each do |value| %>
+            <p>
+                <!-- verificação se o filtro deveria estar clicado ou não -->
+                <% checked = (params[field] && @fields[field].include?(params[field]) && params[field] == value) %>
+                <%= check_box_tag(field, value, checked, {:onclick => "javascript: document.fields.submit();"}) %>
+                <%= label_tag(value, value) %>
+            </p>
+        <% end %>
+    
+    <% end %>
+
+<% end %>

@@ -1,0 +1,111 @@
+<div class="products">
+<h1 class="products_title">Resultados da pesquisa: </h1>
+<% @products.each do |product| %>
+	<div class="product">
+		
+		<!-- HEADER -->
+		<div class="product_header">
+			<div class="product_img">
+				<div class="img_box">
+					<%= image_tag(
+						"notebook_example.jpg",
+						:alt => "No image! :(",
+						:title => "Notebook img example")
+					%>
+				</div>
+			</div>
+			<div class="product_name">
+					<h1><%= product.name %></h1>
+			</div>
+			<div class="product_buttons">
+				<button class="product_button_aval product_like">
+					<i class="material-icons">&#xE8DC;</i>
+				</button>
+				<button class="product_button_aval product_dislike">
+					<i class="material-icons">&#xE8DB;</i>
+				</button>
+				<button class="product_expand">
+					<i class="material-icons">&#xE5CF;</i>
+				</button>
+			</div>
+		</div>
+
+		<div class="product_found_stores">
+			<div class="rol_stores_buttons">
+				<button class="rol_left">
+					<i class="material-icons">&#xE5CB;</i>
+				</button>
+				<button class="rol_right">
+					<i class="material-icons">&#xE5CC;</i>
+				</button>
+			</div>
+			<div class="stores">
+				<% product.stores.each do |store|
+					next if store.available == false
+					begin
+						store_name = store.store.titleize
+						img_url = store_name.downcase.delete("_").delete(" ")
+						price = store.price.round(2)
+						sku = store.sku
+						url = store.url
+					rescue => ex
+						logger.error ex.message
+					end
+
+
+				%>
+				
+
+				<div class="store">
+					<div class="store_info">
+						<div class="store_logo">
+							<%= image_tag(
+								"store_logo_#{img_url}.jpg",
+								:alt => "No image! :(",
+								:title => "#{store_name} logo")
+							%>
+						</div>
+						<div class="store_name"><%= store_name %></div>
+					</div>
+					<div class="store_product_price">R$ <%= price %></div>
+					<div class="store_product_sku">cód. item: <%= sku %></div>
+					<div class="store_link">
+						<a href="<%= @url %>">
+							<button class="store_link_button">
+								Abrir na loja <i class="material-icons">&#xE89E;</i>
+							</button>
+						</a>
+					</div>
+				</div>
+				<% end %>
+			</div>
+
+			<div class="average_price">
+				
+			</div>
+			<div class="product_features">
+				<h1>Detalhes do produto:</h1>
+				<p>
+					<span class="key">Brand</span>:
+					<span class="value"><%= product.brand %></span>
+				</p>
+				<p>
+					<span class="key">Display size</span>:
+					<span class="value"><%= product.display_size %></span>
+				</p>
+				<p>
+					<span class="key">Ram memory</span>:
+					<span class="value"><%= product.ram_memory %></span>
+				</p>
+				<p>
+					<span class="key">Storage</span>:
+					<span class="value"><%= product.storage %></span>
+				</p>
+			</div>
+		</div>
+	</div>
+<% end %>
+	<div id="products_pagination">
+		<%= will_paginate @products %>
+	</div>
+</div>

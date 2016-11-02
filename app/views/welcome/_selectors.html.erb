@@ -1,0 +1,19 @@
+<div id="seletores" class="selectors">
+	<% @aux.each_with_index do |categoria,index| %>
+            <a href=#<%=index%> class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#seletores" ><%=categoria%></a>
+            <div id=<%"aba"%><%=index%> class="collapse">
+                <% @testes[index].each do |test|%> 
+                    <% if(test && !test.empty?)  %>                
+                        <input type="checkbox" onchange="alternaQuery(this)" class="list-group-item" data-parent=<%"#aba"%><%=index%>  value=<%=test%> ><%=test%>              
+                    <% end %>                     
+                <% end %>                     
+            </div>
+	<% end %>  
+</div>
+<input type="hidden" id="queryCategorias"></input>
+
+<script type="text/javascript">
+    $.ajax({
+        url: search_path;
+    })
+</script>
