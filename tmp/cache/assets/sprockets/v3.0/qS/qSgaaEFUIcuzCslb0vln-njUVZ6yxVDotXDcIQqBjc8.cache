@@ -1,0 +1,10 @@
+I"ê(function() {
+  $(function() {
+    return $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+      alert("Clicou em um link.");
+      return $(".products").append(data.responseText);
+    });
+  });
+
+}).call(this);
+:ET

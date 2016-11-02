@@ -1,0 +1,12 @@
+I"((function() {
+  $(function() {
+    return $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+      var products;
+      alert("Clicou em um link.");
+      products = xhr.responseText.find(".products");
+      return $(".products").html(products);
+    });
+  });
+
+}).call(this);
+:ET

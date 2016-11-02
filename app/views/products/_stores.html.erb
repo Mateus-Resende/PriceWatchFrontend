@@ -1,0 +1,32 @@
+<% 
+	begin
+		store_name = @store.store.titleize
+		img_url = @store_name.downcase.delete("_").delete(" ")
+		price = @store.price.round(2).to_s
+		sku = @store.sku
+		url = @store.url
+	rescue => ex
+			logger.error ex.message
+	end
+%>
+<div class="store">
+	<div class="store_info">
+		<div class="store_logo">
+			<%= image_tag(
+				"store_logo_#{img_url}.jpg",
+				alt: "No image! :(",
+				title: "#{store_name} logo")
+			%>
+		</div>
+		<div class="store_name"><%= store_name %></div>
+	</div>
+	<div class="store_product_price">R$ <%= price %></div>
+	<div class="store_product_sku">cód. item: <%= sku %></div>
+	<div class="store_link">
+		<a href="<%= url %>">
+			<button class="store_link_button">
+				Abrir na loja <i class="material-icons">&#xE89E;</i>
+			</button>
+		</a>
+	</div>
+</div>

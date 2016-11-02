@@ -1,18 +1,13 @@
-<h1>Fields</h1>
-<%= form_tag("/products", method: "get", name: 'fields', :remote => true) do %>
-    
-    <% @fields.each do |field, values| %>
-        <%= label_tag(field, field) %>
-
-        <% values.each do |value| %>
-            <p>
-                <!-- verificação se o filtro deveria estar clicado ou não -->
-                <% checked = (params[field] && @fields[field].include?(params[field]) && params[field] == value) %>
-                <%= check_box_tag(field, value, checked, {:onclick => "javascript: document.fields.submit();"}) %>
-                <%= label_tag(value, value) %>
-            </p>
-        <% end %>
-    
-    <% end %>
-
-<% end %>
+<header>
+	<%= material_buttons '&#xE5D2;', :sandwich_menu %>
+	<div class="pag_title"><h1><%= link_to "PriceWatch", "/" %></h1></div>
+</header>
+<section id="pw_presentation" class="pw_presentation">
+	<h1>Encontre o que realmente pesquisou!</h1>
+	<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.</p>
+</section>
+<div class="container">
+	<%= render 'selectors' %>
+	<%= render 'products' %>
+</div>
+<footer></footer>

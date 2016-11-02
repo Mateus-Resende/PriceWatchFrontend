@@ -2,8 +2,13 @@
     background: transparent;
     color: $primary_text_color;
     padding: 20px;
-    width: 100%;
-    @media screen and (min-width: $break_medium) {
-        width: 50%;
+    width: 30%;
+    @media screen and (max-width: $break_medium) {
+        width: 100%;
+        position: fixed;
+	    left: -100%;
+	    top: 70px;
+	    background: white;
+	    z-index: 1;
     }
 }

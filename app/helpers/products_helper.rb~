@@ -1,0 +1,58 @@
+module ProductsHelper
+	def product_features(product, *features)
+		div = '<div class="product_features"><h1>Detalhes do produto:</h1>'
+		features.each do |k|
+			value = product.send(k)
+			key = k.to_s.titleize
+			div << "<div class='feature'><div class='key'>#{key}</div><div class='value'>#{value}</div></div>"
+		end
+		div << "</div>"
+		result = div.html_safe
+	end
+
+	def material_buttons(content, *classes)
+		
+		cs = ""
+		classes.each do |c|
+			cs << "#{c} "
+		end
+		cs = cs.strip
+
+		btn = "<button class='#{cs}'><i class='material-icons'>#{content}</i></button>"
+		result = btn.html_safe
+	end
+
+	def products_paginate(num_pages, current)
+		low 	= current - 2;
+		high 	= current + 2;
+
+		if(low < 0)
+			high += (low * -1)
+		end
+		if high > num_pages
+			low -= (high - current)
+		end
+		
+		links = ""
+
+		if(current != 1)
+			links << "<a class='products_page' href='/?page=#{current-1}'>Anterior</a>"
+		end
+
+		(low..high).step(1) do |n|
+			if n > 0 and n <= num_pages				
+				# Estilo para o link atual
+				if n == current
+					links << "<a class='products_page current' href='/?page=#{n}'>#{n}</a>"
+				else
+					links << "<a class='products_page' href='/?page=#{n}'>#{n}</a>"
+				end
+			end
+		end
+
+		if(current != num_pages)
+			links << "<a class='products_page' href='/?page=#{current+1}'>Próxima</a>"
+		end
+		links = links.html_safe
+	end
+end

@@ -1,3 +1,8 @@
+$break_very_small: "240px";
+$break_small: "480px";
+$break_medium: "800px";
+$break_large: "1280px";
+
 @import 'palette';
 @import 'mixins';
 @import 'products';
@@ -15,9 +20,13 @@
 	transition: all 0.3s linear;
 }
 
+.container {
+	overflow: hidden;
+}
+
 header, footer {
 	width: 100%;
-	height: 150px;
+	height: 70px;
 	background: #3d3d3d;
 	display: flex;
     align-items: center;
@@ -25,11 +34,30 @@ header, footer {
 
 header {
 	h1 {
-	    font-size: 30pt;
+	    font-size: 2.5em;
 	    font-family: "Raleway";
 	    color: white;
 	    margin: 0 16px;
 	    letter-spacing: 3px;
+	}
+	.sandwich_menu {
+		@media screen and (min-width: $break_medium) {
+			display: none;
+		}
+	    width: 48px;
+	    height: 48px;
+	    margin-left: 16px;
+	    border-radius: 50%;
+	    background: transparent;
+	    i {
+		    color: white;
+		    font-size: 36px;
+		}
+	}
+	.pag_title {
+		a {
+			color: white;
+		}
 	}
 }
 
@@ -40,10 +68,11 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    min-height: 300px;
+    font-size: 1.25em;
 	h1 {
 	    border-bottom: 4px solid #3d3d3d;
 	    color: #ffffff;
-	    font-size: 22pt;
 	    padding: 0 2px 12px;
 	    margin-bottom: 24px;
 	    font-family: "Raleway", sans-serif;
@@ -51,7 +80,6 @@ header {
     p {
     	text-align: center;
     	color: white;
-	    font-size: 14pt;
 	}
 }
 
@@ -61,6 +89,8 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding: 36px;
     background: #eee /*image-url("pattern.jpg") fixed*/;
+    @media screen and (min-width: $break_medium) {
+        padding: 36px;
+    }
 }

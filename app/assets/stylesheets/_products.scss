@@ -2,11 +2,6 @@ $product_img_size: 100%;
 $primary_box_shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.44);
 $secondary_box_shadow: 0 3px 7px -2px rgba(0, 0, 0, 0.84);
 
-$break_very_small: "240px";
-$break_small: "480px";
-$break_medium: "800px";
-$break_large: "1280px";
-
 button {
     cursor: pointer;
 }
@@ -21,10 +16,9 @@ button {
     background: transparent;
     color: $primary_text_color;
     padding: 20px;
-    width: 100%;
-    @media screen and (min-width: $break_medium) {
-        width: 50%;
-    }
+    width: 70%;
+    position: relative;
+    transition: all 0.2s ease-in-out;
     .products_title {
         font-family: "Raleway";
         padding: 16px;
@@ -69,16 +63,20 @@ button {
                 h1 {
                     color: $primary_text_color;
                     font-weight: normal;
-                    font-size: 12pt;
+                    font-size: 1em;
                     line-height: 1.4em;
                 }
             }
-            .product_buttons {
-                width: 160px;
+            .product_buttons {        
                 height: 100px;
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                align-items: center;                
+                width: 100%;
+                justify-content: flex-end;
+                @media screen and (min-width: $break_medium) {
+                    width: 160px;
+                    justify-content: center;
+                }
                 button {
                     background: transparent;
                 }
@@ -112,12 +110,11 @@ button {
                 }
             }
         }
-        .product_found_stores {
+        .product_middle {
             display: block;
-            height: 0;
+            height: 0px;
             .product_features {
                 padding: 16px;
-                border-left: 8px solid #5c6bc0;
                 h1 {
                     color: #BDBDBD;
                     font-family: "Raleway";
@@ -126,17 +123,53 @@ button {
                 p {
                     span {
                         line-height: 1.6em;
+                        color: #757575;
                     }
                 }
             }
         }
     }
-    .pagination {
-        padding: 16px;
+    #pagination {
         width: 100%;
         height: auto;
         background: white;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include box-shadow($primary_box_shadow);
+        .products_page {
+            background: transparent;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            width: 16px;
+            height: 16px;
+            color: #9E9E9E;
+            margin: 0 20px;
+        }
+        .current {
+            border-radius: 50%;
+            border: 1px solid;
+        }
+    }
+}
+@media screen and (max-width: $break_medium) {
+    .products {
+        width: 100%;
+        .product_img {
+            width: 100%!important;
+            height: auto!important;
+        }
+        .product_name {
+            text-align: center!important;
+            font-size: 1.2em!important;
+        }
+        .product_buttons {
+            justify-content: center!important;
+        }
     }
 }
 .stores {
@@ -222,20 +255,55 @@ button {
         }
     }
 }
-.rol_stores_buttons {
-    height: auto;
+.info_and_control {
+    background: #eee;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 8px;
-    background: #eeeeee;
-    button {
-        @extend .action_button;
-        width: 42px;
-        height: 42px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    width: 100%;
+    height: auto;
+    
+    .average_price {
+        color: #757575;
+        font-size: 1.2em;
+    }
+}
+
+.no_stores {
+    width: 100%;
+    padding: 16px;
+    h1 {
+        color: #F44336;
+        margin-bottom: 8px;
+    }
+    .error {
+        color: #757575;
+        padding: 16px;
+        border-left: 4px solid #F44336;
         background: white;
-        i {
-            color: #757575;
+        .duck_face {
+
         }
     }
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E0E0E0;
+    /* padding: 8px; */
+    div {
+        color: #757575;
+        width: 100%;
+        height: auto;
+        padding: 16px 8px;
+    }
+    .key {
+        font-weight: bold;
+    }
+}
+
+.disabled {
+    opacity: 0.5;
 }

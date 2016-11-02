@@ -1,0 +1,6 @@
+I"'(function() {
+  '$ ->\n  $("a[data-remote]").on "ajax:success", (e, data, status, xhr) ->\n    alert "Clicou em um link."\n    #$(".products").html xhr.responseText\n    products = xhr.responseText.find ".products"\n    console.log products\n    #$(".products").html products';
+
+
+}).call(this);
+:ET
