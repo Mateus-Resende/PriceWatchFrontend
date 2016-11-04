@@ -15,19 +15,56 @@
 //= require turbolinks
 //= require jquery_ujs
 //= require_tree .
+//= require bootstrap.min
 
 var ss = ".selectors",
 	ps = ".products";
 
-$(document).on("click", ".sandwich_menu", function() {
-	var temp = $($(document).find(ss));
 
-	if(temp.data("actived")) {
-		temp.data("actived", false);
-		temp.css({left: "-100%"});
+function animateBefore(elem){
+	$(elem).animate({
+		opacity: 0,
+		left: "100%"
+	},
+	100);
+}
+
+function animateAfter(elem){
+	$(elem).animate({
+		opacity: 1,
+		left: "0"
+	},
+	700);
+}
+
+function replaceWithNew(elem, data){
+	$(elem).replaceWith($(data).find(elem));
+}
+
+$(document).on("click", ".sandwich_menu", function() {
+	var icon = $($(this).find('i'));
+	var sels = $($(document).find(ss));
+
+	if(icon.data("actived")) {
+		icon.data("actived", false);
+		icon.html('&#xE5D2;');
+		icon.css({
+			color: '#ffffff',
+			position: 'initial',
+			left: 'initial',
+			top: 'initial'
+		});
+		sels.css({left: "-100%"});
 	} else {
-		temp.data("actived", true);
-		temp.css({left: "0"});
+		icon.data("actived", true);
+		icon.html('&#xE5CD;');
+		icon.css({
+			color: '#212121',
+			position: 'fixed',
+			left: 21,
+			top: 16
+		});
+		sels.css({left: "0"});
 	}
 });
 
@@ -51,29 +88,10 @@ $(document).on("click", ".products_page", function() {
     }
 });
 
-function animateBefore(elem){
-	$(elem).animate({
-		opacity: 0,
-		left: "100%"
-	},
-	100);
-}
-
-function animateAfter(elem){
-	$(elem).animate({
-		opacity: 1,
-		left: "0"
-	},
-	700);
-}
-
-function replaceWithNew(elem, data){
-	$(elem).replaceWith($(data).find(elem));
-}
-
 $(document).on("change", ".category_type", function() {
-    var url = $(location).attr("href");
-    var data = $("form[name='fields']").serialize();
+    var url = $(location).attr("href"), 
+    form = $("form[name='fields']"),
+    data = form.serialize();
 
     $.ajax({
 	    url: url,

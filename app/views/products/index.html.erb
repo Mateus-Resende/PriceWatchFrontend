@@ -10,4 +10,11 @@
 	<%= render 'selectors' %>
 	<%= render 'products' %>
 </div>
-<footer></footer>
+<footer>
+	<div id="i18n">
+		<%= form_tag("/products", method: "get", name: "i18n", remote: true) do %>
+			<%= link_to((material_buttons '&#xE894;'), "en", remote: true, class: :select_location) %>
+			<%= link_to((material_buttons '&#xE894;'), "pt-BR" , remote: true, class: :select_location) %>
+		<% end %>
+	</div>
+</footer>

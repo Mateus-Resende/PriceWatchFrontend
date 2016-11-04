@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   #resources :welcome
   resources :products do
-    resources :stores
+    #resources :stores
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

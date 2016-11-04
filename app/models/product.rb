@@ -5,9 +5,9 @@ class Product
   field :display_size, type: String
   field :brand, type: String
   field :name, type: String
-  field :storage, type: Array
   field :img_url, type: String
-  
+  field :storage, type: Hash
+
   embeds_many :stores
 
   def self.search(params)

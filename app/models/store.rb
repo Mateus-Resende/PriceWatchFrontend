@@ -5,7 +5,7 @@ class Store
   field :store, type: String
   field :available, type: Boolean
   field :url, type: String
-  
+
   embedded_in :product, :inverse_of => :stores
   
 end

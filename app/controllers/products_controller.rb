@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
 
   	@products = @products.skip((@page-1) * @per_page).limit(@per_page)
   
-	@num_pages = num_pages
+	@num_pages = num_pages ? num_pages : 1
 
   end
  

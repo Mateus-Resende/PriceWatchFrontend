@@ -1,5 +1,5 @@
 <div class="products">
-<h1 class="products_title">Resultados da pesquisa: </h1>
+<h1 class="products_title"><%= t(:search_results) %>:</h1>
 <% @products.each do |product| %>
 	<div class="product">
 		
@@ -8,9 +8,9 @@
 			<div class="product_img">
 				<div class="img_box">
 					<%= image_tag(
-						"notebook_example.jpg",
-						alt: "No image! :(",
-						title: "Notebook img example")
+						"#{product.img_url}",
+						alt: "#{product.name}",
+						title: "Imagem do produto: #{product.name}")
 					%>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 				<section class="info_and_control">
 					<!-- AVERAGE_PRICE -->
 					<div class="average_price">
-						Preço médio: R$<%= product.stores.avg(:price).round(2) %>
+						<%= t(:avg_price) %>: R$<%= product.stores.avg(:price).round(2) %>
 					</div>
 				</section>
 			<% end %>
@@ -91,8 +91,11 @@
 			</div>
 
 			<!-- PRODUCT_FEATURES -->
-			<%= product_features product, :brand, :display_size, :storage, :ram_memory %>
-			
+			<div class="product_features">
+				<h1><%= t(:product_details) %>:</h1>
+				<%= product_features product, :brand, :display_size, :ram_memory, :processor %>
+			</div>
+
 		</div>
 	</div>
 <% end %>

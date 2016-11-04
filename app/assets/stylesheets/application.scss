@@ -1,3 +1,5 @@
+//*= require bootstrap.min
+
 $break_very_small: "240px";
 $break_small: "480px";
 $break_medium: "800px";
@@ -33,6 +35,7 @@ header, footer {
 }
 
 header {
+	z-index: 10;
 	h1 {
 	    font-size: 2.5em;
 	    font-family: "Raleway";
@@ -49,6 +52,7 @@ header {
 	    margin-left: 16px;
 	    border-radius: 50%;
 	    background: transparent;
+		z-index: 20;
 	    i {
 		    color: white;
 		    font-size: 36px;
