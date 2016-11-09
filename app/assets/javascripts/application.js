@@ -49,21 +49,15 @@ $(document).on("click", ".sandwich_menu", function() {
 		icon.data("actived", false);
 		icon.html('&#xE5D2;');
 		icon.css({
-			color: '#ffffff',
-			position: 'initial',
-			left: 'initial',
-			top: 'initial'
+			color: "initial"
 		});
 		sels.css({left: "-100%"});
 	} else {
 		icon.data("actived", true);
-		icon.html('&#xE5CD;');
 		icon.css({
-			color: '#212121',
-			position: 'fixed',
-			left: 21,
-			top: 16
+			color: "#FF5454"
 		});
+		icon.html('&#xE5CD;');
 		sels.css({left: "0"});
 	}
 });

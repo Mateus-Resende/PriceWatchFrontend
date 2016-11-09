@@ -7,7 +7,7 @@ development:
       # (required).
       #database: price_watch_development
       #database: price_watch
-      database: price_watch_comparator
+      database: price_watch
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:

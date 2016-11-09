@@ -16,32 +16,32 @@ $break_large: "1280px";
 	outline: none;
 	border: none;
 	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', 'Helvetica', sans-serif;
 	color: $primary_text_color;
 	text-decoration: none;
 	transition: all 0.3s linear;
 }
 
-.container {
-	overflow: hidden;
-}
-
-header, footer {
-	width: 100%;
-	height: 70px;
-	background: #3d3d3d;
-	display: flex;
-    align-items: center;
+.super_title {
+    color: $secondary_text_color;
+    font-family: 'Raleway', 'Helvetica', sans-serif;
+    padding: 16px 0;
 }
 
 header {
-	z-index: 10;
-	h1 {
-	    font-size: 2.5em;
-	    font-family: "Raleway";
-	    color: white;
-	    margin: 0 16px;
-	    letter-spacing: 3px;
+    width: 100%;
+    height: 70px;
+    background: $light_color;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    padding: 0 16px;
+    #logo {
+	    width: 48px;
+	    height: 48px;
+	    border-radius: 50%;
+	    border: 1px solid #bababa;
+	    margin-right: 16px;
 	}
 	.sandwich_menu {
 		@media screen and (min-width: $break_medium) {
@@ -49,24 +49,61 @@ header {
 		}
 	    width: 48px;
 	    height: 48px;
-	    margin-left: 16px;
+	    margin-right: 16px;
 	    border-radius: 50%;
 	    background: transparent;
 		z-index: 20;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	    i {
-		    color: white;
+		    color: $primary_text_color;
 		    font-size: 36px;
 		}
 	}
-	.pag_title {
-		a {
-			color: white;
+	.pag_title{
+		display: flex;
+    	align-items: center;
+    	justify-content: center;
+		h1 {
+		    font-family: 'Raleway', 'Helvetica', sans-serif;
+		    margin: 0;
+		    letter-spacing: 3px;
+	    	font-weight: lighter;
+		    a {
+				color: $primary_text_color;
+			    font-size: 1em;
+			}
 		}
 	}
 }
 
+nav {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @media screen and (max-width: $break_medium) {
+		display:none
+	}
+    a {
+	    color: $dark_color;
+	    font: normal 14pt 'Raleway', 'Helvetica', sans-serif;
+	    padding: 4px;
+	    margin: 0 4px;
+	    text-decoration: none;
+	    opacity: 1;
+	    &:hover {
+		    opacity: 0.6;
+		    color: initial;
+		}
+	}
+}
+
+
 #pw_presentation {
-	background: image-url("pattern.jpg") fixed;
+	background: image-url("pattern4") fixed;
     padding: 36px;
     display: flex;
     align-items: center;
@@ -75,26 +112,109 @@ header {
     min-height: 300px;
     font-size: 1.25em;
 	h1 {
-	    border-bottom: 4px solid #3d3d3d;
+	    border-bottom: 4px solid $second_color;
 	    color: #ffffff;
 	    padding: 0 2px 12px;
 	    margin-bottom: 24px;
-	    font-family: "Raleway", sans-serif;
+	    font-family: 'Raleway', 'Helvetica', sans-serif;
+	    font-weight: lighter;
 	}
     p {
-    	text-align: center;
+    	text-align: left;
     	color: white;
+    	@media screen and (min-width: $break_medium) {
+    		text-align: center;
+    		max-width: 70%;
+    	}
 	}
 }
 
 .container {
     width: 100%;
     height: auto;
-    position: relative;
+    position: static;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
     background: #eee /*image-url("pattern.jpg") fixed*/;
     @media screen and (min-width: $break_medium) {
         padding: 36px;
     }
+}
+
+footer {
+	width: 100%;
+	height: auto;
+	background: $dark_color;
+	display: flex;
+    align-items: center;
+    @media screen and (max-width: $break_medium) {
+    	flex-wrap: wrap;
+    }
+}
+
+footer div {
+    width: 50%;
+	@media screen and (max-width: $break_medium) {
+    	width: 100%;
+    }
+    height: auto;
+    min-height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 8px;
+}
+
+@media screen and (min-width: $break_medium) {
+	form[name="fields"] {
+	    max-width: 350px;
+	    background: white;
+	    padding: 20px;
+	    box-shadow: 0 2px 7px -2px rgba(0, 0, 0, 0.54);
+	}
+}
+
+.collapse.in {
+    padding: 8px;
+}
+
+form[name="fields"] div a {
+  background: white !important;
+  color: #212121;
+  border-radius: 0;
+  border: none;
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 100;
+  display: inline-block!important;
+  width: auto!important;
+  padding: 16px 0 8px;
+}
+
+form[name="fields"] div:nth-child(2) a {
+  border-bottom: 4px solid #283593;
+}
+
+form[name="fields"] div:nth-child(3) a {
+  border-bottom: 4px solid #1976D2;
+}
+
+form[name="fields"] div:nth-child(4) a {
+  border-bottom: 4px solid #03A9F4;
+}
+
+form[name="fields"] div:nth-child(5) a {
+  border-bottom: 4px solid #80DEEA;
+}
+
+form[name="fields"] div:hover a {
+  color: #212121;
+  width: 100%!important;
+}
+
+form[name="fields"] div:focus a {
+  color: #212121;
+}
+
+form[name="fields"] div a:focus {
+  color: #212121;
 }

@@ -1,14 +1,21 @@
 // Cor principal
 $primary_color:        	#3F51B5;
-$primary_color_dark:   	darken($primary_color, 30%);
-$primary_color_light:  	lighten($primary_color, 30%);
+$primary_color_dark:   	darken($primary_color, 10%);
+$primary_color_light:  	lighten($primary_color, 10%);
+
+//Cor secundária
+$second_color:        	#F44336;
+$second_color_dark:   	darken($second_color, 10%);
+$second_color_light:   	lighten($second_color, 10%);
 
 // Cores de texto
 $primary_text_color:   	#212121;
 $secondary_text_color: 	#757575;
 
 $light_color: 			#fafafa;
+$dark_color: 			#30333b;
 
 // Cores de decoração
-$accent_color:         	#5C6BC0;
-$divider_color:        	#BDBDBD;
+$accent_color:         	#0093e5;
+$divider_color:        	#E0E0E0;
+$soft_color:        	#BDBDBD;

@@ -1,20 +1,28 @@
 <header>
 	<%= material_buttons '&#xE5D2;', :sandwich_menu %>
-	<div class="pag_title"><h1><%= link_to "PriceWatch", "/" %></h1></div>
+	<%= image_tag "pw_icon", alt: "No image", title: "Logo", id: :logo %>
+	<div class="pag_title"><h1><%= link_to "PriceWatch", root_path %></h1></div>
+	<nav id="pag_links">
+		<%= link_to t(:home), root_path %>
+		<%= link_to t(:about), root_path %>
+		<%= link_to t(:terms), root_path %>
+	</nav>
 </header>
 <section id="pw_presentation" class="pw_presentation">
-	<h1>Encontre o que realmente pesquisou!</h1>
+	<h1><%= t(:find_researched) %></h1>
 	<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.</p>
 </section>
-<div class="container">
+
+<section class="container">
 	<%= render 'selectors' %>
 	<%= render 'products' %>
-</div>
+</section>
+
 <footer>
-	<div id="i18n">
-		<%= form_tag("/products", method: "get", name: "i18n", remote: true) do %>
-			<%= link_to((material_buttons '&#xE894;'), "en", remote: true, class: :select_location) %>
-			<%= link_to((material_buttons '&#xE894;'), "pt-BR" , remote: true, class: :select_location) %>
-		<% end %>
+	<div id="widget1">
+		
+	</div>
+	<div id="widget2">
+		
 	</div>
 </footer>

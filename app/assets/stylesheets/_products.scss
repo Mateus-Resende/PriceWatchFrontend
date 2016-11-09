@@ -19,11 +19,6 @@ button {
     width: 70%;
     position: relative;
     transition: all 0.2s ease-in-out;
-    .products_title {
-        font-family: "Raleway";
-        padding: 16px;
-        color: #9f9f9f;
-    }
     .product {
         background: white;
         margin: 0 0 14px 0;
@@ -116,14 +111,14 @@ button {
             .product_features {
                 padding: 16px;
                 h1 {
-                    color: #BDBDBD;
-                    font-family: "Raleway";
+                    color: $soft_color;
                     margin-bottom: 16px;
+                    padding: 0;
                 }
                 p {
                     span {
                         line-height: 1.6em;
-                        color: #757575;
+                        color: $secondary_text_color;
                     }
                 }
             }
@@ -132,12 +127,10 @@ button {
     #pagination {
         width: 100%;
         height: auto;
-        background: white;
         padding: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
-        @include box-shadow($primary_box_shadow);
         .products_page {
             background: transparent;
             text-align: center;
@@ -147,12 +140,12 @@ button {
             padding: 16px;
             width: 16px;
             height: 16px;
-            color: #9E9E9E;
+            color: $dark_color;
             margin: 0 20px;
         }
         .current {
             border-radius: 50%;
-            border: 1px solid;
+            border: 1px solid $second_color;
         }
     }
 }
@@ -203,7 +196,7 @@ button {
             .store_name {
                 width: 100%;
                 height: 64px;
-                color: #757575;
+                color: $secondary_text_color;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -218,8 +211,8 @@ button {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #5c6bc0;
-            border: 1px solid #757575;
+            color: $accent_color;
+            border: 1px solid $secondary_text_color;
             margin: 8px 0;
             font-size: 18pt;
         }
@@ -227,7 +220,7 @@ button {
             width: 100%;
             font-size: 8pt;
             margin: 8px 0;
-            color: #757575;
+            color: $secondary_text_color;
         }
         .store_link {
             width: 100%;
@@ -241,14 +234,14 @@ button {
             }
             .store_link_button {
                 padding: 8px 16px;
-                color: #796bc5;
+                color: $accent_color;
                 background: transparent;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 14pt;
                 i {
-                    color: #796bc5!important;
+                    color: $accent_color!important;
                     margin-left: 8px;
                 }
             }
@@ -265,8 +258,10 @@ button {
     height: auto;
     
     .average_price {
-        color: #757575;
+        color: $second_color;
         font-size: 1.2em;
+        border: 1px solid;
+        padding: 8px 16px;
     }
 }
 
@@ -278,7 +273,7 @@ button {
         margin-bottom: 8px;
     }
     .error {
-        color: #757575;
+        color: $secondary_text_color;
         padding: 16px;
         border-left: 4px solid #F44336;
         background: white;
@@ -291,10 +286,10 @@ button {
 .feature {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid $divider_color;
     /* padding: 8px; */
     div {
-        color: #757575;
+        color: $secondary_text_color;
         width: 100%;
         height: auto;
         padding: 16px 8px;

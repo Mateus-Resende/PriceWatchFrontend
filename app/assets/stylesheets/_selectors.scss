@@ -5,11 +5,12 @@
     width: 30%;
     @media screen and (max-width: $break_medium) {
         width: 100%;
-        position: fixed;
+        position: absolute;
         left: -100%;
         top: 0;
-        padding-top: 70px;
         background: white;
         z-index: 1;
     }
 }
+
+
