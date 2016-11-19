@@ -103,7 +103,7 @@ nav {
 
 
 #pw_presentation {
-	background: image-url("pattern4") fixed;
+	background: image-url("pattern") fixed;
     padding: 36px;
     display: flex;
     align-items: center;
@@ -126,6 +126,9 @@ nav {
     		text-align: center;
     		max-width: 70%;
     	}
+	}
+	i, b {
+		color: $light_color;
 	}
 }
 
@@ -151,6 +154,37 @@ footer {
     @media screen and (max-width: $break_medium) {
     	flex-wrap: wrap;
     }
+
+	ul {
+	  padding: 20px;
+	  list-style: none;
+	  color: white;
+	  font-size: 14pt;
+	  font-weight: 100;
+	      display: flex;
+	    flex-wrap: wrap;
+	    align-items: baseline;
+	}
+
+	span {
+	    background: rgba(244, 67, 54, 0.5);
+	  	padding: 8px 16px;
+	  	color: white;
+	  	border-radius: 4px;
+	}
+
+	li {
+	    margin-left: 16px;
+	    color: white;
+	    font-size: 80%;
+	    background: rgba(255, 255, 255, 0.1);
+	    padding: 4px 12px;
+	    border-radius: 4px;
+	    margin: 6px;
+	}
+	li:nth-child(2) {
+		margin-top: 16px;
+	}
 }
 
 footer div {
@@ -160,7 +194,7 @@ footer div {
     }
     height: auto;
     min-height: 100px;
-    background: rgba(255, 255, 255, 0.1);
+    /*background: rgba(255, 255, 255, 0.1);*/
     margin: 8px;
 }
 
@@ -205,6 +239,9 @@ form[name="fields"] div:nth-child(4) a {
 form[name="fields"] div:nth-child(5) a {
   border-bottom: 4px solid #80DEEA;
 }
+form[name="fields"] div:nth-child(6) a {
+  border-bottom: 4px solid #BBDEFB;
+}
 
 form[name="fields"] div:hover a {
   color: #212121;
@@ -217,4 +254,17 @@ form[name="fields"] div:focus a {
 
 form[name="fields"] div a:focus {
   color: #212121;
+}
+
+div#widget2 {
+    padding: 16px;
+    min-height: 220px;
+    p {
+    	color: white;
+    	font-size: 14pt;
+    	font-weight: 100;
+    }
+    b, i {
+    	color: white;
+    }
 }

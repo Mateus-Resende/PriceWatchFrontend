@@ -1,0 +1,41 @@
+<div class="selectors" id="accordion">
+	<h1 class="super_title"><%= t(:categories) %>:</h1>
+	<%= form_tag("/products", method: "get", name: "fields", remote: true) do %>
+		<% @fields.each do |field, values| %>
+            <div id="group_<%= field %>">
+			  <%= link_to(t(field),{}, class:'groupers btn btn-primary btn-lg btn-block' , href:"##{field}", data:{ toggle: 'collapse', parent:'#accordion'} )%>			  
+				<div id="<%= field %>"" class="collapse" class="collapse in">			
+					
+					<% 
+					begin 
+						values = values.sort { |v1, v2| v1 <=> v2 }
+					rescue => ex
+						logger.error ex.message
+					end
+					%>
+					
+					<% values.each do |value| 
+						begin
+							next if value.length == 0 
+					%>
+
+						<p class="list-group-item" data-parent="#<%=field%>">	
+						    
+							<!-- verificação se o filtro deveria estar clicado ou não -->
+							<% checked = (params[field] && @fields[field].include?(params[field]) && params[field] == value)%>
+							<%= check_box_tag(field, value, checked, {class: "category_type"}) %>
+
+							<%= label_tag(value, value) %>
+						</p>
+					<%
+						rescue => ex
+							logger.error ex.message
+						end
+				    end 
+					%>
+
+			    </div>
+		    </div>
+		<% end %>
+	<% end %>
+</div>

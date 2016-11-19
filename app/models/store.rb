@@ -6,6 +6,6 @@ class Store
   field :available, type: Boolean
   field :url, type: String
 
-  embedded_in :product, :inverse_of => :stores
+  embedded_in :parent, :inverse_of => :stores
   
 end

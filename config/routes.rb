@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  root 'parents#index'
 
   #match 'blog/:ano', controller: 'posts', :action: 'list', as: 'posts'
 
   #resources :welcome
-  resources :products do
+  resources :parents do
     #resources :stores
   end
 

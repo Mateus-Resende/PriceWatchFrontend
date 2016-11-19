@@ -1,0 +1,42 @@
+<header>
+	<%= material_buttons '&#xE5D2;', :sandwich_menu %>
+	<%= image_tag "pw_icon", alt: "No image", title: "Logo", id: :logo %>
+	<div class="pag_title"><h1><%= link_to "PriceWatch", root_path %></h1></div>
+	<nav id="pag_links">
+		<%= link_to t(:home), root_path %>
+		<% #link_to t(:about), root_path %>
+		<% #link_to t(:terms), root_path %>
+	</nav>
+</header>
+<section id="pw_presentation" class="pw_presentation">
+	<h1><%= t(:find_researched) %></h1>
+	<p>O nosso objetivo é possibilitar a você, <b>diminuição de tempo e aumento da precisão</b> na busca por seus produtos favoritos na <i>internet</i>.</p>
+</section>
+
+<section class="container">
+	<%= render 'selectors' %>
+	<%= render 'products' %>
+</section>
+
+<footer>
+	<div id="widget1">
+		<ul><span>Projetado por:</span>
+			<li>Douglas José Tertuliano</li>
+			<li>Greg A. Sullivan</li>
+			<li>Ítalo Polazzi Ferreira</li>
+			<li>Izabella P. de Oliveira</li>
+			<li>Jonas Oliveira da S. Filho</li>
+			<li>Lucas Henrique S. de Carvalho</li>
+			<li>Mateus Augusto M. Resende</li>
+			<li>Matheus Pires</li>
+			<li>Pedro Augusto M. T. Cláudio</li>
+			<li>Samuel Henrique da S. Rizzon</li>
+			<li>Vanessa Paixão</li>
+		</ul>
+	</div>
+	<div id="widget2">
+		<p>PriceWatch é um projeto interdisciplinar desenvolvido por alunos do 4º período de Ciências da Computação no Centro Universitário de Belo Horizonte (UNI-BH). Que tem como objetivos principais, <b>diminuir o tempo e aumentar a precisão</b> na busca de produtos no <i>e-commerce.</i></p>
+		<br>
+		<span class="rights">PRICE WATCH - 2016</span>
+	</div>
+</footer>
